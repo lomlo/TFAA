@@ -14,4 +14,19 @@ class AdventuresController < ApplicationController
     end
 
   end
+
+  def new
+    @adventure = Adventure.new
+  end
+
+  def create
+    @adventure = Adventure.create(adventure_params)
+  end
+
+  private
+
+  def adventure_params
+    params.require(:adventure).permit(:title, :synopsis)
+  end
+
 end
