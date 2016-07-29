@@ -21,7 +21,13 @@ class AdventuresController < ApplicationController
 
   def create
     @adventure = Adventure.create(adventure_params)
+    redirect_to adventure_design_path(@adventure)
   end
+
+  def design
+
+  end
+
 
   private
 

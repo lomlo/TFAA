@@ -41,7 +41,7 @@
       "/Users/jojograndjojo/Projects2/TFAA/app/controllers/adventures_controller.rb": [
         1,
         1,
-        15,
+        18,
         null,
         null,
         1,
@@ -57,17 +57,23 @@
         null,
         null,
         1,
-        1,
+        2,
         null,
         null,
         1,
-        1,
+        2,
+        2,
         null,
         null,
         1,
         null,
+        null,
+        null,
+        null,
         1,
+        null,
         1,
+        2,
         null,
         null,
         null
@@ -137,6 +143,6 @@
         0
       ]
     },
-    "timestamp": 1469794762
+    "timestamp": 1469797529
   }
 }

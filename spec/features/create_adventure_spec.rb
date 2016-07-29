@@ -14,4 +14,13 @@ feature "Creating adventure" do
     expect(page).to have_content "New Adventure"
   end
 
+  scenario "user can design adventure" do
+    user = FactoryGirl.create(:user)
+
+    sign_in_with(user)
+    create_adventure
+    expect(page).to have_link "Chapter 1"
+  end
+
+
 end
