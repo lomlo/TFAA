@@ -1,6 +1,7 @@
 class Adventure < ApplicationRecord
 
   has_many :chapters
+  has_many :games
 
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }
 

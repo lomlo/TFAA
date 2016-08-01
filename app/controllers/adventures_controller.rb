@@ -5,6 +5,6 @@ class AdventuresController < ApplicationController
 
   def show
     @adventure = Adventure.find(params[:id])
-    @first_chapter = Chapter.where(adventure_id: @adventure.id).first
+    @show_chapter = Chapter.where(adventure_id: @adventure.id).first
   end
 end
