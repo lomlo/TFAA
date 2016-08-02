@@ -13,6 +13,7 @@
       <% @choices.each do |choice| %>
         <%= link_to "#{choice.option}", adventure_chapter_path(@chapter.adventure_id, choice.resulting_chapter_id), id:"choice_button", class:"button" %>
       <% end %>
+      <%= link_to "Start Again",adventure_game_destroy_path(@chapter.adventure_id), id:"choice_button", class:"button" %>
     </div>
   </body>
 </html>

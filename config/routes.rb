@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :adventures do
     resources :chapters
+    get "game_destroy" => "games#delete"
   end
 
 end
