@@ -25,14 +25,18 @@ feature "Playing the adventure" do
     chapter_1 = FactoryGirl.create(:chapter, description: "chapter 1", adventure_id: adventure.id)
     chapter_2 = FactoryGirl.create(:chapter, description: "chapter 2", adventure_id: adventure.id)
     choice_1 = FactoryGirl.create(:choice, option: "choice 1", resulting_chapter_id: chapter_2.id, chapter_id: chapter_1.id)
-    choice_2 = FactoryGirl.create(:choice, option: "choice 2", resulting_chapter_id: 3, chapter_id: chapter_2.id)
+    choice_2 = FactoryGirl.create(:choice, option: "choice 2", resulting_chapter_id: chapter_2.id, chapter_id: chapter_2.id)
     login_as(user)
 
     visit "/"
     click_link "Makers"
     click_link "Play"
     click_link "choice 1"
+    game = Game.where(adventure_id: adventure.id, user_id: user.id).first
 
+    expect(game).to be_truthy
+    expect(game.choices.split(',').last).to eq("#{choice_1.id}")
+    expect(game.chapters.split(',').last).to eq("#{chapter_2.id}")
     expect(page).to have_content "chapter 2"
     expect(page).to have_content "choice 2"
   end
@@ -43,7 +47,7 @@ feature "Playing the adventure" do
     chapter_1 = FactoryGirl.create(:chapter, description: "chapter 1", adventure_id: adventure.id)
     chapter_2 = FactoryGirl.create(:chapter, description: "chapter 2", adventure_id: adventure.id)
     choice_1 = FactoryGirl.create(:choice, option: "choice 1", resulting_chapter_id: chapter_2.id, chapter_id: chapter_1.id)
-    choice_2 = FactoryGirl.create(:choice, option: "choice 2", resulting_chapter_id: 3, chapter_id: chapter_2.id)
+    choice_2 = FactoryGirl.create(:choice, option: "choice 2", resulting_chapter_id: 5, chapter_id: chapter_2.id)
     login_as(user)
 
     visit "/"
@@ -54,9 +58,12 @@ feature "Playing the adventure" do
     click_link "Makers"
     click_link "Play"
     log_in_with(user)
+    game = Game.where(adventure_id: adventure.id, user_id: user.id).first
 
+    expect(game).to be_truthy
+    expect(game.choices.split(',').last).to eq("#{choice_1.id}")
+    expect(game.chapters.split(',').last).to eq("#{chapter_2.id}")
     expect(page).to have_content "chapter 2"
     expect(page).to have_content "choice 2"
-
   end
 end
