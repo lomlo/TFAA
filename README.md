@@ -1,3 +1,19 @@
+# Time for an Adventure
+
+TFAA is an application written in Ruby. It allows its users to create and play, Choose your own adventure games.
+
+## Installation
+1. Install [Rails](http://guides.rubyonrails.org/)
+1. Install [postgresql](https://www.postgresql.org/download/)
+1. Clone this repository `git clone`
+1. Install the required dependencies by using the command `bundle`
+1. Run `rake db:seed` to load your database, with the pre-written adventure
+1. Start the server by running `bin/rails s`
+1. Go to [http://localhost:3000](http://localhost:3000)
+1. Start having fun!
+
+## Usage
+
 ```````
 User Stories - MVP
 
@@ -31,9 +47,9 @@ I would like to see the next paragraph
 
 User Stories - Nice to have (To be added to Waffle after MVP)
 
-As a user 
-So I can only play with known users 
-I want to be only play with registered users 
+As a user
+So I can only play with known users
+I want to be only play with registered users
 
 As a user
 So I can create my own adventures
@@ -67,9 +83,9 @@ As a user
 So I can play with all my friends
 I want to be able to play with mutiple players
 
-As a user 
-So I can interact with other users 
-I want to chat with users 
+As a user
+So I can interact with other users
+I want to chat with users
 
 As a user
 So I can let others know the best adventures
@@ -99,13 +115,13 @@ As a user
 So I can see how well I'm doing
 I want to be able to score points
 
-As a user 
-So I can confirm I have an account 
-I want to be able to recieve email notification 
+As a user
+So I can confirm I have an account
+I want to be able to recieve email notification
 
-As a user 
-So I can have a personalised experience 
-I want to have customised error messages 
+As a user
+So I can have a personalised experience
+I want to have customised error messages
 
 React frontend reworked
 
