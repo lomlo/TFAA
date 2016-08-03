@@ -23,10 +23,10 @@ ActiveRecord::Schema.define(version: 20160801133224) do
   end
 
   create_table "chapters", force: :cascade do |t|
-    t.string   "description"
+    t.string   "description",      null: false
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
-    t.integer  "adventure_id"
+    t.integer  "adventure_id",     null: false
     t.integer  "parent_choice_id"
     t.index ["adventure_id"], name: "index_chapters_on_adventure_id", using: :btree
   end
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20160801133224) do
     t.string   "option",     null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "chapter_id"
+    t.integer  "chapter_id", null: false
     t.index ["chapter_id"], name: "index_choices_on_chapter_id", using: :btree
   end
 

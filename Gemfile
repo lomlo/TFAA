@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 
 
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -52,7 +53,7 @@ group :test do
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'rspec-collection_matchers'
-  # Use shoulda matchers for one line test validations 
+  # Use shoulda matchers for one line test validations
   gem 'shoulda-matchers'
   # Use rails controller for controller test syntax
   gem 'rails-controller-testing'
