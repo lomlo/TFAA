@@ -38,6 +38,7 @@ class ChaptersController < ApplicationController
     end
       @chapter = Chapter.new(chapter_params)
       @chapter.adventure_id = @adventure.id
+      p Choice.all
       @chapter.parent_choice_id = @choice.id
       @chapter.save
     redirect_to adventure_design_path

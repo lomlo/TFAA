@@ -11,7 +11,7 @@ feature "Updating adventures" do
     click_link "Create"
     fill_in "Title", with: "Marlon's story"
     fill_in "Synopsis", with: "Marlon buy trousers"
-    attach_file 'Image', "/Users/jojograndjojo/Projects2/TFAA/lib/assets/owl jolson.jpeg"
+    attach_file 'Image', "app/assets/images/owl jolson.jpeg"
     click_button "submit"
 
     click_link "Start"
@@ -28,7 +28,7 @@ feature "Updating adventures" do
     click_link "Create"
     fill_in "Title", with: "Marlon's story"
     fill_in "Synopsis", with: "Marlon buy trousers"
-    attach_file 'Image', "/Users/jojograndjojo/Projects2/TFAA/lib/assets/owl jolson.jpeg"
+    attach_file 'Image', "app/assets/images/owl jolson.jpeg"
     click_button "submit"
 
     click_link "Start"
@@ -47,7 +47,7 @@ feature "Updating adventures" do
     click_link "Create"
     fill_in "Title", with: "Marlon's story"
     fill_in "Synopsis", with: "Marlon buy trousers"
-    attach_file 'Image', "/Users/jojograndjojo/Projects2/TFAA/lib/assets/owl jolson.jpeg"
+    attach_file 'Image', "app/assets/images/owl jolson.jpeg"
     click_button "submit"
 
     click_link "Start"
