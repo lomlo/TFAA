@@ -7,4 +7,5 @@ class Choice < ApplicationRecord
       self[column].present? || self[column] = nil
     end
   end
+
 end

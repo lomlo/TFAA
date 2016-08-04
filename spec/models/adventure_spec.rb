@@ -43,7 +43,7 @@ describe Adventure, type: :model do
     adventure = Adventure.create( title: "jpeg", synopsis: "once upon a time", image: Rack::Test::UploadedFile.new(Rails.root + jpeg = 'app/assets/images/Bristol.jpeg', 'image/jpeg'))
     chapter   = Chapter.create(description: 'hello world', adventure_id: adventure.id, parent_choice_id: choice.id)
 
-    expect(adventure.create_tree(adventure.chapters.first)).to eq "<ul><li><a href='/adventures/#{adventure.id}/chapters/#{chapter.id}/choices/new'> Chapter #{chapter.id}</a></li></ul>"
+    expect(adventure.create_tree(adventure.chapters.first)).to eq "<ul><li><a href='/adventures/#{adventure.id}/chapters/#{chapter.id}/choices/new'> Chapter: #{adventure.first_3_words(chapter)}</a></li></ul>"
   end
 
   scenario "adventure#create_tree can create a nested list with one parent and one child" do
@@ -54,7 +54,7 @@ describe Adventure, type: :model do
     chapter2  = Chapter.create(description: 'hello world', adventure_id: adventure.id, parent_choice_id: choice2.id)
 
 
-    expect(adventure.create_tree(adventure.chapters.first)).to eq "<ul><li><a href='/adventures/#{adventure.id}/chapters/#{chapter1.id}/choices/new'> Chapter #{chapter1.id}</a><ul><li><a href='/adventures/#{adventure.id}/chapters/#{chapter2.id}/choices/new'> Chapter #{chapter2.id}</a></li></ul></ul>"
+    expect(adventure.create_tree(adventure.chapters.first)).to eq "<ul><li><a href='/adventures/#{adventure.id}/chapters/#{chapter1.id}/choices/new'> Chapter: #{adventure.first_3_words(chapter1)}</a><ul><li><a href='/adventures/#{adventure.id}/chapters/#{chapter2.id}/choices/new'> Chapter: #{adventure.first_3_words(chapter2)}</a></li></ul></ul>"
   end
 
   scenario "adventure#create_tree can create a nested list with one head and two chapters" do
@@ -66,7 +66,7 @@ describe Adventure, type: :model do
     choice3   = Choice.create(option: 'choice 1', chapter_id: chapter1.id)
     chapter3  = Chapter.create(description: 'hello world', adventure_id: adventure.id, parent_choice_id: choice3.id)
 
-    expect(adventure.create_tree(adventure.chapters.first)).to eq "<ul><li><a href='/adventures/#{adventure.id}/chapters/#{chapter1.id}/choices/new'> Chapter #{chapter1.id}</a><ul><li><a href='/adventures/#{adventure.id}/chapters/#{chapter2.id}/choices/new'> Chapter #{chapter2.id}</a></li><li><a href='/adventures/#{adventure.id}/chapters/#{chapter3.id}/choices/new'> Chapter #{chapter3.id}</a></li></ul></ul>"
+    expect(adventure.create_tree(adventure.chapters.first)).to eq "<ul><li><a href='/adventures/#{adventure.id}/chapters/#{chapter1.id}/choices/new'> Chapter: #{adventure.first_3_words(chapter1)}</a><ul><li><a href='/adventures/#{adventure.id}/chapters/#{chapter2.id}/choices/new'> Chapter: #{adventure.first_3_words(chapter2)}</a></li><li><a href='/adventures/#{adventure.id}/chapters/#{chapter3.id}/choices/new'> Chapter: #{adventure.first_3_words(chapter3)}</a></li></ul></ul>"
   end
 
   # xscenario "adventure#create_tree  can create a nested list with one head and three chapters" do

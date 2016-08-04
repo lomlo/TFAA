@@ -13,9 +13,13 @@ class AdventuresController < ApplicationController
   end
 
   def create
-    @adventure = Adventure.create(adventure_params)
-    @adventure_id = @adventure.id
-    redirect_to adventure_design_path(@adventure_id)
+    @adventure = Adventure.new(adventure_params)
+    if @adventure.save
+      redirect_to adventure_design_path(@adventure.id)
+    else
+      flash[:notice] = "Adventure title has been used already"
+      redirect_to new_adventure_path
+    end
   end
 
   def design
