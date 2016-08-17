@@ -19,7 +19,7 @@
  html, body {
    height: 100%;
    font-family: 'Source Sans Pro', sans-serif;
-   background: url('background_img.jpg') no-repeat;
+   background: asset-url("background_img.jpg") no-repeat;
    background-color: #e9e8e8;
    background-size: cover;
  }
